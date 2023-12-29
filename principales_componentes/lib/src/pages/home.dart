@@ -4,23 +4,31 @@ import 'package:principales_componentes/src/providers/menu_provider.dart';
 import 'package:principales_componentes/src/utils/icon_string_util.dart';
 
 class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Componentes Dart"),
+        title: const Text("Componentes Flutter",
+            style: TextStyle(color: Colors.grey)),
+        backgroundColor: Colors.grey.shade900,
       ),
       body: _examples(),
+      /* body: const Center(
+          child: Text("Hola", style: TextStyle(color: Colors.grey))), */
+      backgroundColor: Colors.grey.shade900,
+      floatingActionButton: FloatingActionButton(
+        onPressed: setMessage,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey,
+        foregroundColor: Colors.grey.shade900,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   Widget _examples() {
-    /* menuProvider.cargarData().then((options) {
-      
-    });
-    return ListView(
-      children: _itemsJson(),
-    ); */
     return FutureBuilder(
       future: menuProvider.cargarData(),
       initialData: [],
@@ -36,11 +44,14 @@ class Home extends StatelessWidget {
     final List<Widget> options = [];
     data.forEach((option) {
       final widgetTemp = ListTile(
-        title: Text(option['texto']),
+        title: Text(
+          option['texto'],
+          style: TextStyle(color: Colors.grey),
+        ),
         leading: getIcon(option['icon']),
         trailing: Icon(
           Icons.keyboard_arrow_right,
-          color: Colors.blue.shade200,
+          color: Colors.blue.shade300 ,
         ),
         onTap: () {
           /*
@@ -55,5 +66,9 @@ class Home extends StatelessWidget {
       options.add(widgetTemp);
     });
     return options;
+  }
+
+  setMessage() {
+    print("Hett");
   }
 }

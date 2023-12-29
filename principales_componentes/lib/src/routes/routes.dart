@@ -6,7 +6,7 @@ import 'package:principales_componentes/src/pages/home.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
-    '/': (BuildContext context) => Home(),
+    '/': (BuildContext context) =>const Home(),
     'alert': (BuildContext context) => AlertPage(),
     'avatar': (BuildContext context) => AvatarPage(),
     'card': (BuildContext context) => CardPage(),

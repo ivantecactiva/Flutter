@@ -20,7 +20,9 @@ class HomePageTemp extends StatelessWidget {
       final tempWidget = ListTile(
         title: Text(option),
       );
-      lista.add(tempWidget);
+      lista
+        ..add(tempWidget)
+        ..add(const Divider());
     }
     return lista;
   }
@@ -38,7 +40,10 @@ class HomePageTemp extends StatelessWidget {
       return Column(
         children: [
           ListTile(
-            title: Text(i + '-!',style: TextStyle(fontSize: 22),),
+            title: Text(
+              i + '-!',
+              style: TextStyle(fontSize: 22),
+            ),
             subtitle: Text('Descripcion'),
             leading: Icon(Icons.add_circle),
             trailing: Icon(Icons.keyboard_arrow_right),
